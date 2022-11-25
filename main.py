@@ -29,5 +29,11 @@ london_co = {
 
 
 device_name = input('Введите имя устройства: ')
-parameter_name = input('Введите имя параметра: ')
-print(london_co[device_name][parameter_name])
+parameters = list(london_co[device_name].keys())
+list_parameter = (', '.join(parameters))
+parameter_name = input(f'Введите имя параметра {list_parameter}: ')
+if parameter_name.lower() in london_co[device_name]:
+    result = london_co[device_name][parameter_name.lower()]
+else:
+    result = ('Такого параметра нет')
+print(result)
